@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>ID, EGO, Super-EGO </title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/blood.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h1>ID, Ego, Super-Ego</h1>
+			<a href="https://koziolekweb.pl">Bartek „Koziołek“ Kuczyński</a>
+		</section>
+		<section>
+			<img src="img/freud1.jpg" height="500px">
+		</section>
+		<section>
+			<section>
+				<h2>ID</h2>
+				<h3>Instinct without morality</h3>
+			</section>
+			<section>
+				<h3>How JVM identify Objects?</h3>
+			</section>
+			<section>
+				<h3>Ordinary Object Pointers – OOPS</h3>
+				<ul>
+					<li class="fragment">This internal stuff!!!</li>
+					<li class="fragment">Mark Word</li>
+					<li class="fragment">Klass Word</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Mark Word</h3>
+				<ul>
+					<li class="fragment">Identity <samp>hashCode</samp></li>
+					<li class="fragment">Locks</li>
+					<li class="fragment">GC metadata</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Klass Word</h3>
+				<ul>
+					<li class="fragment">Klass pointer</li>
+					<li class="fragment">Compressed Class</li>
+				</ul>
+			</section>
+			<section>
+				<h3>In most cases you should not care</h3>
+			</section>
+			<section>
+				<h3>When you should care?</h3>
+				<ul>
+					<li class="fragment">You use object as monitor</li>
+					<li class="fragment">CPU cache fit - Old code</li>
+					<li class="fragment">High performance</li>
+				</ul>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2>Ego</h2>
+				<h3>How do I identify myself</h3>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					```java
+					public class MyEntity{
+						private ??? id;
+					}
+					```
+				</textarea>
+			</section>
+			<section>
+				<h3>What can be there?</h3>
+				<div class="fragment"><samp>int(eger)</samp> or <samp>long</samp></div>
+			</section>
+			<section>
+				<h3>Sequence</h3>
+				<div class="cleft">
+					<h4 class="fragment">Pros</h4>
+					<ul>
+						<li class="fragment">It is simple</li>
+						<li class="fragment">It is fast</li>
+						<li class="fragment">It has „business value”</li>
+					</ul>
+				</div>
+				<div class="cright">
+					<h4 class="fragment">Cons</h4>
+					<ul>
+						<li class="fragment">It is not secure</li>
+						<li class="fragment">It is slow</li>
+						<li class="fragment">The „missed value” problem</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h3>Ideal Identifier</h3>
+				<ul>
+					<li class="fragment">Unique</li>
+					<li class="fragment">Fast (whatever it means)</li>
+					<li class="fragment">Sortable/Comparable</li>
+					<li class="fragment">Continuous and gap-free (Optional)</li>
+				</ul>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					### Sequence
+					```java
+					class LongIdGenerator implements IdGenerator<Long> {
+						private final AtomicLong current;
+
+						LongIdGenerator() {
+							current = new AtomicLong(0);
+						}
+
+						public Long nextVal() {
+							return current.addAndGet(1);
+						}
+					}
+					```
+				</textarea>
+			</section>
+			<section>
+				<div>Is it unique? <span class="fragment">Yes</span> <span class="fragment">but no</span></div>
+				<div class="fragment">Is it fast? <span class="fragment">Yes</span></div>
+				<div class="fragment">Is it sortable? <span class="fragment">Yes</span></div>
+				<div class="fragment">Is it gap-free? <span class="fragment">Yes</span> <span class="fragment">but no</span></div>
+			</section>
+			<section>
+				<h3>Other solution</h3>
+				<h4>UUID</h4>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					### UUID
+					```java
+						class UuidIdGenerator implements IdGenerator<UUID> {
+
+							public UUID nextVal() {
+								return UUID.randomUUID();
+							}
+						}
+					```
+				</textarea>
+			</section>
+			<section>
+				<div>Is it unique? <span class="fragment">Yes</span></div>
+				<div class="fragment">Is it fast? <span class="fragment">Not so</span></div>
+				<div class="fragment">Is it sortable? <span class="fragment">No</span></div>
+				<div class="fragment">Is it gap-free? <span class="fragment">Unapplicable</span></div>
+			</section>
+			<section>
+				<h3>Other solution</h3>
+				<h4 class="fragment">ULID</h4>
+			</section>
+			<section>
+				<h3>What is ULID</h3>
+				<ul>
+					<li class="fragment">Universally Unique Lexicographically Sortable Identifier</li>
+					<li class="fragment">UUID with time</li>
+					<li class="fragment">48bits of timestamp + 80bits of randomness</li>
+				</ul>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					### ULID
+					```java
+						class UlidIdGenerator implements IdGenerator<ULID.Value> {
+							private final ULID generator = new ULID();
+
+							public ULID.Value nextVal() {
+								return generator.nextValue();
+							}
+						}
+					```
+				</textarea>
+			</section>
+			<section>
+				<div>Is it unique? <span class="fragment">Yes</span></div>
+				<div class="fragment">Is it fast? <span class="fragment">Not so</span></div>
+				<div class="fragment">Is it sortable? <span class="fragment">Yes</span></div>
+				<div class="fragment">Is it gap-free? <span class="fragment">Unapplicable</span></div>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2>Super-EGO</h2>
+				<h3>How society identify us</h3>
+			</section>
+			<section>
+				<h3>Natural identifiers</h3>
+			</section>
+			<section>
+				<h3>Email</h3>
+				<div class="cleft">
+					<h4 class="fragment">Pros</h4>
+					<ul>
+						<li class="fragment">It is simple</li>
+						<li class="fragment">Easy to maintain</li>
+					</ul>
+				</div>
+				<div class="cright">
+					<h4 class="fragment">Cons</h4>
+					<ul>
+						<li class="fragment">GDPR</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h3>National ID</h3>
+				<div class="cleft">
+					<h4 class="fragment">Pros</h4>
+					<ul>
+						<li class="fragment">It is simple</li>
+						<li class="fragment">Easy to maintain</li>
+					</ul>
+				</div>
+				<div class="cright">
+					<h4 class="fragment">Cons</h4>
+					<ul>
+						<li class="fragment">GDPR</li>
+						<li class="fragment">Design flaws</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h3>Business-value ID</h3>
+				<div class="fragment">Invoice ID</div>
+				<div class="fragment">Customer ID</div>
+				<div class="fragment">Account number</div>
+			</section>
+			<section>
+				<h3>Business-value IDs</h3>
+				<div class="fragment">Have some specific requirements</div>
+				<div class="fragment">Could be hard to implement</div>
+				<div class="fragment">Exist in different context</div>
+			</section>
+			<section>
+				<h3>What about users?</h3>
+				<div class="fragment">UX</div>
+				<div class="fragment">Links</div>
+				<div class="fragment">Randomness</div>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					### Custom random id generator
+					```java
+						class AbstractCustomIdGenerator implements IdGenerator<CUID> {
+							private static final String DIGITS = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+							private static final int SIZE = 11;
+							public CUID nextVal() {
+								byte[] id = init();
+								for (int i = 0; i < SIZE; i++) {
+									var index = abs(id[i] % DIGITS.length());
+									id[i] = (byte) DIGITS.charAt(index);
+								}
+								return asId(id);
+							}
+						}
+					```
+				</textarea>
+			</section>
+			<section>
+				<h3>How many unique ID we can generate?</h3>
+			</section>
+			<section>
+				<h3>24986644000165537791</h3>
+				<h5 class="fragment">24 quintillion 986 quadrillion 644 trillion 165 million 537 thousand 791</h5>
+				<h5 class="fragment">24 tryliardy 986 tryliony 644 miliardów 165 miliony 537 tysiące 791</h5>
+			</section>
+			<section>
+				<img src="img/jupiter.jpeg" height="500px">
+			</section>
+		</section>
+		<section>
+			<section>
+				<h3>What does it mean fast?</h3>
+				<ul>
+					<li class="fragment">Number of values per time unit</li>
+					<li class="fragment">Easy to use/maintain</li>
+					<li class="fragment">Works well with many nodes</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Stats time</h3>
+				<ul>
+					<li class="fragment">OS: Ubuntu 20.04.6 LTS x86_64</li>
+					<li class="fragment">Kernel: 5.8.0-43-generic</li>
+					<li class="fragment">CPU: AMD Ryzen Threadripper 3960X (48) @ 3.800GHz</li>
+					<li class="fragment">Memory: 128746MiB</li>
+					<li class="fragment">Java: OpenJDK Runtime Environment (build 20+36-2344)</li>
+				</ul>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					```java
+						@Benchmark
+						@Threads(N)
+						@BenchmarkMode(Throughput)
+						@Fork(FORK)
+						@Measurement(iterations = ITER, time = TIME)
+						@Warmup(iterations = ITER, time = TIME)
+						public void _000_NThread(Blackhole blackhole) {
+							doTest(blackhole);
+						}
+					```
+					Where
+					* `N` ∈ {1, 2, 24, 48}
+					* ITER = 5
+					* TIME = 5
+					* FORK = 5
+				</textarea>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					```java
+						default void doTest(Blackhole blackhole) {
+							for (int i = 1; i < 100000; i++)
+								blackhole.consume(generator().nextVal());
+						}
+					```
+				</textarea>
+			</section>
+			<section>
+				<h5>Generate ID ops/s (higher is better)</h5>
+				<table style="font-size: 1.8rem;">
+					<thead>
+					<tr>
+						<th></th>
+						<th>1</th>
+						<th>2</th>
+						<th>24</th>
+						<th>48</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Seq</td>
+						<td>1943,8 ± 5,5</td>
+						<td>1076,6 ± 43,6</td>
+						<td>604,6 ± 72,7</td>
+						<td>682,3 ±117,3</td>
+					</tr>
+					<tr>
+						<td>UUID</td>
+						<td>20,9 ± 0,2</td>
+						<td>9,7 ± 2</td>
+						<td>9,9 ±0,1</td>
+						<td>9,9 ±0,1</td>
+					</tr>
+					<tr>
+						<td>ULID</td>
+						<td>15,0 ± 0,2</td>
+						<td>5,0 ± 1,5</td>
+						<td>4,3 ± 0,1</td>
+						<td>4,0 ± 0,1</td>
+					</tr>
+					<tr>
+						<td>Custom</td>
+						<td>196,0 ± 1,0</td>
+						<td>89,0 ± 5,2</td>
+						<td>69,0 ± 2,1</td>
+						<td>66,0 ± 0,3</td>
+					</tr>
+					<tr>
+						<td>SecCustom</td>
+						<td>25,4 ± 0,2</td>
+						<td>12,7 ± 2,6</td>
+						<td>11,6 ± 0,2</td>
+						<td>10,8 ± 0,1</td>
+					</tr>
+					<tr>
+						<td>UnSecCustom</td>
+						<td>206,7 ± 4,1</td>
+						<td>106,6 ± 3,2</td>
+						<td>93,3 ± 2,4</td>
+						<td>67,0 ± 1,2</td>
+					</tr>
+					</tbody>
+				</table>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					```java
+						private Callable<Integer> prepareTask(Set<String> table) {
+							return () -> {
+								var task = new InsertTask(generator());
+								for (int i = 0; i < SIZE; i++) {
+									task.insert(table);
+								}
+								return task.missed();
+							};
+						}
+					```
+				</textarea>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					```java
+					void insert(Set<String> table) {
+						boolean inserted = false;
+						while (!inserted) {
+							inserted = table.add(generator.nextValString());
+							if (!inserted)
+								missed.incrementAndGet();
+						}
+					}
+					```
+				</textarea>
+			</section>
+			<section data-markdown>
+  				<textarea data-template>
+					##### Collisions (lower is better)
+					|             | 1 | 2 | 4 | 8 | 16 | 24 | 48 |
+					|-------------|---|---|---|---|----|----|----|
+					| Seq         | 0 | 140k | 612k | 3kk | 12kk | 30kk | 117kk |
+					| UUID        | 0 | 0 | 0 | 0 | 0  | 0  | 0  |
+					| ULID        | 0 | 0 | 0 | 0 | 0  | 0  | 0  |
+					| Custom      | 0 | 0 | 0 | 0 | 0  | 0  | 0  |
+					| SecCustom   | 0 | 0 | 0 | 0 | 0  | 0  | 0  |
+					| UnSecCustom | 0 | 0 | 0 | 0 | 0  | 0  | 0  |
+				</textarea>
+			</section>
+			<section>
+				<h3>Databases…</h3>
+				<ul>
+					<li>Blocking vs parallel inserts</li>
+					<li>UUID type in databases</li>
+					<li>Indexes</li>
+				</ul>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2>So…</h2>
+			</section>
+			<section>
+				<ul>
+					<li class="fragment">ID is important part of entity</li>
+					<li class="fragment">Sequence are almost never the best solution</li>
+					<li class="fragment">UUID and ULID are better</li>
+					<li class="fragment">Think about structure of your data</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li class="fragment">What is Aggregate Root?</li>
+					<li class="fragment">Do you need gap-free ID?</li>
+					<li class="fragment">Where you will use that ID?</li>
+					<li class="fragment">Can you use natural IDs?</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Feedback</h4>
+				<a href="https://forms.gle/Krdbt6rN6RGy3bph6">
+					<img src="img/feedback.png" height="500px">
+				</a>
+			</section>
+			<section>
+				<h2>Thanks!</h2>
+			</section>
+		</section>
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+	});
+</script>
+</body>
+</html>
