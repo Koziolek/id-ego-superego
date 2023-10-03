@@ -3,7 +3,6 @@ package pl.koziolekweb.idegosuperego.ego;
 import pl.koziolekweb.idegosuperego.commons.IdGenerator;
 
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicLong;
 
 class UuidIdGenerator implements IdGenerator<UUID> {
 
@@ -17,7 +16,7 @@ class UuidIdGenerator implements IdGenerator<UUID> {
 		return nextVal();
 	}
 
-	public String nextValString(){
+	public String nextValString() {
 		return nextVal().toString();
 	}
 }

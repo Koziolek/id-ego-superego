@@ -1,0 +1,568 @@
+[
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UlidIdGeneratorTest._1_singleThread",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 13.361755645511645,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 13.361755645511645,
+                "50.0" : 13.361755645511645,
+                "90.0" : 13.361755645511645,
+                "95.0" : 13.361755645511645,
+                "99.0" : 13.361755645511645,
+                "99.9" : 13.361755645511645,
+                "99.99" : 13.361755645511645,
+                "99.999" : 13.361755645511645,
+                "99.9999" : 13.361755645511645,
+                "100.0" : 13.361755645511645
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    13.361755645511645
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UlidIdGeneratorTest._2_twoThreads",
+        "mode" : "thrpt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3.549852286497032,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3.549852286497032,
+                "50.0" : 3.549852286497032,
+                "90.0" : 3.549852286497032,
+                "95.0" : 3.549852286497032,
+                "99.0" : 3.549852286497032,
+                "99.9" : 3.549852286497032,
+                "99.99" : 3.549852286497032,
+                "99.999" : 3.549852286497032,
+                "99.9999" : 3.549852286497032,
+                "100.0" : 3.549852286497032
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    3.549852286497032
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UlidIdGeneratorTest._3__24Threads",
+        "mode" : "thrpt",
+        "threads" : 24,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 4.023038039465955,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4.023038039465955,
+                "50.0" : 4.023038039465955,
+                "90.0" : 4.023038039465955,
+                "95.0" : 4.023038039465955,
+                "99.0" : 4.023038039465955,
+                "99.9" : 4.023038039465955,
+                "99.99" : 4.023038039465955,
+                "99.999" : 4.023038039465955,
+                "99.9999" : 4.023038039465955,
+                "100.0" : 4.023038039465955
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4.023038039465955
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UlidIdGeneratorTest._4__48Threads",
+        "mode" : "thrpt",
+        "threads" : 48,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3.9663343131556874,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3.9663343131556874,
+                "50.0" : 3.9663343131556874,
+                "90.0" : 3.9663343131556874,
+                "95.0" : 3.9663343131556874,
+                "99.0" : 3.9663343131556874,
+                "99.9" : 3.9663343131556874,
+                "99.99" : 3.9663343131556874,
+                "99.999" : 3.9663343131556874,
+                "99.9999" : 3.9663343131556874,
+                "100.0" : 3.9663343131556874
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    3.9663343131556874
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UuidIdGeneratorTest._1_singleThread",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 20.088423788946773,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 20.088423788946773,
+                "50.0" : 20.088423788946773,
+                "90.0" : 20.088423788946773,
+                "95.0" : 20.088423788946773,
+                "99.0" : 20.088423788946773,
+                "99.9" : 20.088423788946773,
+                "99.99" : 20.088423788946773,
+                "99.999" : 20.088423788946773,
+                "99.9999" : 20.088423788946773,
+                "100.0" : 20.088423788946773
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    20.088423788946773
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UuidIdGeneratorTest._2_twoThreads",
+        "mode" : "thrpt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 9.476381002215728,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 9.476381002215728,
+                "50.0" : 9.476381002215728,
+                "90.0" : 9.476381002215728,
+                "95.0" : 9.476381002215728,
+                "99.0" : 9.476381002215728,
+                "99.9" : 9.476381002215728,
+                "99.99" : 9.476381002215728,
+                "99.999" : 9.476381002215728,
+                "99.9999" : 9.476381002215728,
+                "100.0" : 9.476381002215728
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    9.476381002215728
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UuidIdGeneratorTest._3__24Threads",
+        "mode" : "thrpt",
+        "threads" : 24,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 9.682970643022642,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 9.682970643022642,
+                "50.0" : 9.682970643022642,
+                "90.0" : 9.682970643022642,
+                "95.0" : 9.682970643022642,
+                "99.0" : 9.682970643022642,
+                "99.9" : 9.682970643022642,
+                "99.99" : 9.682970643022642,
+                "99.999" : 9.682970643022642,
+                "99.9999" : 9.682970643022642,
+                "100.0" : 9.682970643022642
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    9.682970643022642
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.ego.UuidIdGeneratorTest._4__48Threads",
+        "mode" : "thrpt",
+        "threads" : 48,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 9.139881184140856,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 9.139881184140856,
+                "50.0" : 9.139881184140856,
+                "90.0" : 9.139881184140856,
+                "95.0" : 9.139881184140856,
+                "99.0" : 9.139881184140856,
+                "99.9" : 9.139881184140856,
+                "99.99" : 9.139881184140856,
+                "99.999" : 9.139881184140856,
+                "99.9999" : 9.139881184140856,
+                "100.0" : 9.139881184140856
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    9.139881184140856
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.id.LongIdGeneratorTest._1_singleThread",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1912.2051766206962,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1912.2051766206962,
+                "50.0" : 1912.2051766206962,
+                "90.0" : 1912.2051766206962,
+                "95.0" : 1912.2051766206962,
+                "99.0" : 1912.2051766206962,
+                "99.9" : 1912.2051766206962,
+                "99.99" : 1912.2051766206962,
+                "99.999" : 1912.2051766206962,
+                "99.9999" : 1912.2051766206962,
+                "100.0" : 1912.2051766206962
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1912.2051766206962
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.id.LongIdGeneratorTest._2_twoThreads",
+        "mode" : "thrpt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1173.7338438260217,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1173.7338438260217,
+                "50.0" : 1173.7338438260217,
+                "90.0" : 1173.7338438260217,
+                "95.0" : 1173.7338438260217,
+                "99.0" : 1173.7338438260217,
+                "99.9" : 1173.7338438260217,
+                "99.99" : 1173.7338438260217,
+                "99.999" : 1173.7338438260217,
+                "99.9999" : 1173.7338438260217,
+                "100.0" : 1173.7338438260217
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1173.7338438260217
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.id.LongIdGeneratorTest._3__24Threads",
+        "mode" : "thrpt",
+        "threads" : 24,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 556.5414858985891,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 556.5414858985891,
+                "50.0" : 556.5414858985891,
+                "90.0" : 556.5414858985891,
+                "95.0" : 556.5414858985891,
+                "99.0" : 556.5414858985891,
+                "99.9" : 556.5414858985891,
+                "99.99" : 556.5414858985891,
+                "99.999" : 556.5414858985891,
+                "99.9999" : 556.5414858985891,
+                "100.0" : 556.5414858985891
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    556.5414858985891
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "pl.koziolekweb.idegosuperego.id.LongIdGeneratorTest._4__48Threads",
+        "mode" : "thrpt",
+        "threads" : 48,
+        "forks" : 1,
+        "jvm" : "/home/koziolek/.sdkman/candidates/java/20-open/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "20",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "20+36-2344",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 972.6888528548473,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 972.6888528548473,
+                "50.0" : 972.6888528548473,
+                "90.0" : 972.6888528548473,
+                "95.0" : 972.6888528548473,
+                "99.0" : 972.6888528548473,
+                "99.9" : 972.6888528548473,
+                "99.99" : 972.6888528548473,
+                "99.999" : 972.6888528548473,
+                "99.9999" : 972.6888528548473,
+                "100.0" : 972.6888528548473
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    972.6888528548473
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
