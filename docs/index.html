@@ -106,12 +106,23 @@
 			</section>
 			<section>
 				<h3>Ideal Identifier</h3>
-				<ul>
-					<li class="fragment">Unique</li>
-					<li class="fragment">Fast (whatever it means)</li>
-					<li class="fragment">Sortable/Comparable</li>
-					<li class="fragment">Continuous and gap-free (Optional)</li>
-				</ul>
+				<div class="cleft">
+					<h4 class="fragment">Technical</h4>
+					<ul>
+						<li class="fragment">Unique</li>
+						<li class="fragment">Efficient & Fast</li>
+						<li class="fragment">Easy to implement</li>
+					</ul>
+				</div>
+				<div class="cright">
+					<h4 class="fragment">Business</h4>
+					<ul>
+						<li class="fragment">Unique</li>
+						<li class="fragment">Easy to use</li>
+						<li class="fragment">Has business meaning</li>
+						<li class="fragment">Sortable/Gap-free</li>
+					</ul>
+				</div>
 			</section>
 			<section data-markdown>
   				<textarea data-template>
@@ -133,10 +144,11 @@
 			</section>
 			<section>
 				<ul>
-				<li>Is it unique? <span class="fragment">Yes</span> <span class="fragment">but no</span></li>
-				<li class="fragment">Is it fast? <span class="fragment">Yes</span></li>
-				<li class="fragment">Is it sortable? <span class="fragment">Yes</span></li>
-				<li class="fragment">Is it gap-free? <span class="fragment">Yes</span> <span class="fragment">but no</span></li>
+					<li>Is it unique? <span class="fragment">Yes</span> <span class="fragment">but no</span></li>
+					<li class="fragment">Is it fast? <span class="fragment">Yes</span></li>
+					<li class="fragment">Is it easy to use? <span class="fragment">Yes</span></li>
+					<li class="fragment">Is it sortable? <span class="fragment">Yes</span></li>
+					<li class="fragment">Is it gap-free? <span class="fragment">Yes</span> <span class="fragment">but no</span></li>
 				</ul>
 			</section>
 			<section>
@@ -158,10 +170,11 @@
 			</section>
 			<section>
 				<ul>
-				<li>Is it unique? <span class="fragment">Yes</span></li>
-				<li class="fragment">Is it fast? <span class="fragment">Not so</span></li>
-				<li class="fragment">Is it sortable? <span class="fragment">No</span></li>
-				<li class="fragment">Is it gap-free? <span class="fragment">Unapplicable (Sparse)</span></li>
+					<li>Is it unique? <span class="fragment">Yes</span></li>
+					<li class="fragment">Is it fast? <span class="fragment">Not so</span></li>
+					<li class="fragment">Is it easy to use? <span class="fragment">No</span></li>
+					<li class="fragment">Is it sortable? <span class="fragment">No</span></li>
+					<li class="fragment">Is it gap-free? <span class="fragment">Unapplicable (Sparse)</span></li>
 				</ul>
 			</section>
 			<section>
@@ -192,10 +205,11 @@
 			</section>
 			<section>
 				<ul>
-				<li>Is it unique? <span class="fragment">Yes</span></li>
-				<li class="fragment">Is it fast? <span class="fragment">Not so</span></li>
-				<li class="fragment">Is it sortable? <span class="fragment">Yes</span></li>
-				<li class="fragment">Is it gap-free? <span class="fragment">Unapplicable</span></li>
+					<li>Is it unique? <span class="fragment">Yes</span></li>
+					<li class="fragment">Is it fast? <span class="fragment">Not so</span></li>
+					<li class="fragment">Is it easy to use? <span class="fragment">No</span></li>
+					<li class="fragment">Is it sortable? <span class="fragment">Yes</span></li>
+					<li class="fragment">Is it gap-free? <span class="fragment">Unapplicable</span></li>
 				</ul>
 			</section>
 		</section>
@@ -294,14 +308,23 @@
 			<section>
 				<img src="img/jupiter.jpeg" height="500px">
 			</section>
+			<section>
+				<h3>Alternatives</h3>
+				<ul>
+					<li class="fragment">Custom Random ID for UUID</li>
+					<li class="fragment">Snowflake ID for ULID</li>
+					<li class="fragment">Business ID for Sequence</li>
+				</ul>
+			</section>
 		</section>
 		<section>
 			<section>
-				<h3>What does it mean fast?</h3>
+				<h3>What does it mean efficient & fast?</h3>
 				<ul>
-					<li class="fragment">Number of values per time unit</li>
 					<li class="fragment">Easy to use/maintain</li>
 					<li class="fragment">Works well with many nodes</li>
+					<li class="fragment">Index friendly</li>
+					<li class="fragment">Number of values per time unit</li>
 				</ul>
 			</section>
 			<section>
